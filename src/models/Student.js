@@ -23,6 +23,13 @@ const studentSchema = new mongoose.Schema({
     mobile: {
         type: String
     },
+    rollNumber: {
+    type: String
+},
+
+admissionNumber: {
+    type: String
+},
 
     monthlyFee: {
         type: Number

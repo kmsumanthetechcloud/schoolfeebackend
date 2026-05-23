@@ -9,7 +9,8 @@ const {
     getStudents,
     deleteStudent,
     updateStudent,
-    getPendingStudents
+    getPendingStudents,
+    getClassWiseAnalytics
 } = require('../controllers/studentController')
 
 
@@ -28,6 +29,11 @@ router.get(
     getPendingStudents
 )
 
+router.get(
+    '/class-wise-analytics',
+    authMiddleware,
+    getClassWiseAnalytics
+)
 
 // Delete Student
 router.delete('/:id', authMiddleware, deleteStudent)
