@@ -63,14 +63,24 @@ exports.getStudents = async (req, res) => {
                 const currentYear =
                     currentDate.getFullYear()
 
+                // Admission Details
+                const admissionMonth =
+                    Number(student.admissionMonth)
+
+                const admissionYear =
+                    Number(student.admissionYear)
+
                 // Months Difference
                 const totalMonths =
-                    (
-                        (currentYear - student.admissionYear) * 12
-                    ) +
-                    (
-                        currentMonth - student.admissionMonth
-                    ) + 1
+                    Math.max(
+                        (
+                            (currentYear - admissionYear) * 12
+                        ) +
+                        (
+                            currentMonth - admissionMonth
+                        ) + 1,
+                        0
+                    )
 
                 // Expected Amount
                 const expectedAmount =
@@ -145,14 +155,24 @@ exports.getPendingStudents = async (req, res) => {
                 const currentYear =
                     currentDate.getFullYear()
 
+                // Admission Details
+                const admissionMonth =
+                    Number(student.admissionMonth)
+
+                const admissionYear =
+                    Number(student.admissionYear)
+
                 // Months Difference
                 const totalMonths =
-                    (
-                        (currentYear - student.admissionYear) * 12
-                    ) +
-                    (
-                        currentMonth - student.admissionMonth
-                    ) + 1
+                    Math.max(
+                        (
+                            (currentYear - admissionYear) * 12
+                        ) +
+                        (
+                            currentMonth - admissionMonth
+                        ) + 1,
+                        0
+                    )
 
                 // Expected Amount
                 const expectedAmount =
@@ -286,14 +306,24 @@ exports.getClassWiseAnalytics = async (req, res) => {
             const currentYear =
                 currentDate.getFullYear()
 
+            // Admission Details
+            const admissionMonth =
+                Number(student.admissionMonth)
+
+            const admissionYear =
+                Number(student.admissionYear)
+
             // Total Months
             const totalMonths =
-                (
-                    (currentYear - student.admissionYear) * 12
-                ) +
-                (
-                    currentMonth - student.admissionMonth
-                ) + 1
+                Math.max(
+                    (
+                        (currentYear - admissionYear) * 12
+                    ) +
+                    (
+                        currentMonth - admissionMonth
+                    ) + 1,
+                    0
+                )
 
             // Expected Amount
             const expectedAmount =
