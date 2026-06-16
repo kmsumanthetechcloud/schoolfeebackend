@@ -1,0 +1,37 @@
+services:
+
+  school-frontend:
+    image: 676878928643.dkr.ecr.ap-south-1.amazonaws.com/school-fee-management-frontend:latest
+
+    container_name: school-frontend
+
+    restart: always
+
+    ports:
+      - "5174:5173"
+
+  school-backend:
+    image: 676878928643.dkr.ecr.ap-south-1.amazonaws.com/school-fee-management-backend:latest
+
+    container_name: school-backend
+
+    restart: always
+
+    env_file:
+      - ./backend/.env
+
+    ports:
+      - "5001:5000"
+
+  school-mongodb:
+    image: mongo:7
+
+    container_name: school-mongodb
+
+    restart: always
+
+    volumes:
+      - school_mongodb_data:/data/db
+
+volumes:
+  school_mongodb_data:
