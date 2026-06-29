@@ -6,7 +6,7 @@ pipeline {
 				echo 'code checkout successful'
 				}
 			}
-			stage9('workspace'){
+			stage('workspace'){
 				steps {
 				sh 'pwd'
 				sh 'ls -la'
